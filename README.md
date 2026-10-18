@@ -12,7 +12,7 @@ assets/           demo-tetris.gif goes here (see ../PseudoNet/docs/RECORDING.md)
 ```
 
 ## Before publishing
-- Replace the remaining placeholder: `YOUR-PAYPAL-HANDLE` (`grep -r "YOUR-" .`).
+- No placeholder left (donations point to https://ko-fi.com/pseudonetlang).
 
 ## Publishing on GitHub Pages
 Repository: `pseudonet-lang/pseudonet-lang.github.io` (the `<org>.github.io` name makes the site live at the root),
