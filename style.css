@@ -35,3 +35,15 @@ th, td { border-bottom: 1px solid var(--border); padding: 8px 10px; text-align: 
 footer { margin-top: 64px; border-top: 1px solid var(--border); padding: 24px 0 40px; color: var(--muted); font-size: 0.95rem; }
 footer a { color: var(--muted); }
 h3 { margin-top: 28px; }
+
+/* gallery */
+.sample { margin: 56px 0; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start; }
+.two h3 { margin: 0 0 8px; font-size: 1rem; color: var(--muted); font-weight: 600; }
+.two pre { margin: 0 0 8px; font-size: 13px; }
+.note { color: var(--muted); font-size: 0.9rem; margin: 6px 0 0; }
+pre.out { background: #0e1116; color: #d6e2ee; border-color: #2a303c; }
+details { margin: 8px 0; }
+details > summary { cursor: pointer; color: var(--accent); font-weight: 600; margin: 6px 0; }
+details.cs { margin-top: 16px; }
+details pre { max-height: 520px; overflow: auto; }
