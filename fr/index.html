@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pseudo.NET</title>
+<meta name="description" content="Écrivez du pseudocode libre dans votre langue et compilez-le en C# avec un LLM local. Gratuit, MIT, sans compte, rien ne quitte votre machine.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./">Pseudo.NET</a>
+  <nav><a href="#enseignants">Enseignants</a><a href="#langues">Langues</a><a href="#installation">Installation</a><a href="../">English</a></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Écrivez votre pseudocode avec vos mots.<br>Obtenez un programme qui tourne.</h1>
+    <p class="lead">Pseudo.NET compile du pseudocode <em>libre</em> en C# grâce à un modèle de langage local. Aucune syntaxe imposée, pas de compte, pas de clé d'API. Rien ne quitte votre machine.</p>
+    <a class="btn" href="https://github.com/pseudonet-lang/pseudonet/releases">Télécharger</a>
+    <a class="btn alt" href="https://github.com/pseudonet-lang/pseudonet">Code source</a>
+  </section>
+
+  <p><img class="demo" src="../assets/demo-tetris.gif" alt="Tetris en cours d'exécution, écrit en pseudocode" width="480"></p>
+
+  <h2>Deux types de projet</h2>
+  <div class="grid">
+    <div class="card"><h3>PseudoCode</h3><p>Applications console. Algorithmique, exercices, enseignement.</p></div>
+    <div class="card"><h3>PseudrawCode</h3><p>Fenêtres avec dessin, clavier et minuterie. Petits jeux et animations.</p></div>
+  </div>
+  <p>Six exemples prêts à lancer sont fournis comme modèles de projet : Snake, Tetris, balle rebondissante, nombres premiers, tri à bulles, devine le nombre. Le premier lancement n'exige pas Ollama.</p>
+
+  <h2 id="enseignants">Pour les enseignants</h2>
+  <p>Les agents écrivent du code, mais les élèves doivent toujours apprendre à <em>raisonner</em> algorithmiquement. Le pseudocode est la méthode classique pour l'enseigner, mais il n'a jamais été exécutable. Avec Pseudo.NET, le pseudocode d'un élève s'exécute tel qu'il l'a écrit, dans sa langue et son style, et le C# généré est un vrai programme à lire ensuite.</p>
+  <ul>
+    <li><strong>Confidentiel :</strong> le modèle tourne en local, aucune donnée d'élève n'est envoyée.</li>
+    <li><strong>Gratuit :</strong> licence MIT, sans compte ni abonnement.</li>
+    <li><strong>Aucune syntaxe à retenir :</strong> accolades, indentation seule ou phrases, tout fonctionne.</li>
+  </ul>
+
+  <h2 id="langues">Le pseudocode dans votre langue</h2>
+  <p>Français, anglais, espagnol, allemand, italien, portugais, chinois, japonais, russe… Les noms de couleurs et de touches ont des tables JSON par langue, et les messages du compilateur sont localisés. Ajouter la vôtre revient à écrire un fichier.</p>
+<pre>nombresPremiers = une nouvelle liste
+
+définir est-ce que compteur est premier, qui retourne un booléen
+	estPremier = vrai
+	si compteur est inférieur à 2 alors
+		estPremier = faux
+	répéter diviseur de 2 à 50
+		si diviseur est inférieur à compteur alors
+			reste = compteur modulo diviseur
+			si reste est égal à 0 alors
+				estPremier = faux
+	retourner estPremier
+
+répéter compteur de 2 à 50
+	premier = est-ce que compteur est premier
+	si premier alors
+		ajouter compteur à nombresPremiers
+
+afficher le texte "Nombres premiers jusqu'à 50 :"
+pour chaque nombre dans nombresPremiers
+	afficher nombre</pre>
+
+  <h2 id="installation">Installation</h2>
+  <p>Deux façons, même résultat. Dans les deux cas, <a href="https://ollama.com">Ollama</a> est nécessaire pour vos propres programmes, puis une fois : <code>ollama pull qwen2.5-coder:7b</code> (environ 5 Go). Les exemples tournent sans.</p>
+
+  <h3>En ligne de commande (n'importe quel éditeur)</h3>
+  <p>Nécessite le SDK .NET 8 ou plus. Les modèles Pseudraw (fenêtre) exigent Windows.</p>
+<pre>dotnet new install PseudoNet.Templates
+dotnet new pseudocode -n Bonjour
+cd Bonjour
+dotnet run</pre>
+  <p>Essayer un jeu tout fait (sans Ollama pour les exemples) :</p>
+<pre>dotnet new pseudo-tetris -n MonTetris
+cd MonTetris
+dotnet run</pre>
+  <p>Autres modèles : <code>pseudrawcode</code>, <code>pseudo-snake</code>, <code>pseudo-bounce</code>, <code>pseudo-primes</code>, <code>pseudo-bubble-sort</code>, <code>pseudo-guess-number</code>. Modifiez ensuite <code>Program.pseudo</code> dans l'éditeur de votre choix et relancez.</p>
+
+  <h3>Dans Visual Studio</h3>
+  <ol>
+    <li>Visual Studio 2026 (Community suffit ; 2022 visé mais non testé).</li>
+    <li>Téléchargez le <code>.vsix</code> depuis les <a href="https://github.com/pseudonet-lang/pseudonet/releases">releases</a> et ouvrez-le.</li>
+    <li>Fichier → Nouveau → Projet → cherchez « Pseudo ». F5.</li>
+  </ol>
+
+    <h2>Limites assumées</h2>
+  <p>Un modèle local de 7 milliards de paramètres est bon, pas parfait : un programme très long ou ambigu peut demander une reformulation. Windows uniquement pour l'instant (Visual Studio, ou le SDK .NET en ligne de commande).</p>
+
+  <h2 id="soutenir">Soutenir</h2>
+  <p>Pseudo.NET est gratuit et le restera. Si l'outil vous a servi, à vous ou à vos élèves, et que vous souhaitez remercier pour l'idée, un don volontaire est le bienvenu, jamais obligatoire.</p>
+  <a class="btn" href="https://www.paypal.me/YOUR-PAYPAL-HANDLE">Faire un don via PayPal</a>
+</main>
+
+<footer><div class="wrap">MIT © 2026 Malek AIT OUARET · <a href="https://github.com/pseudonet-lang/pseudonet">GitHub</a> · <a href="../">English</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pseudo.NET</title>
+<meta name="description" content="Write free-form pseudocode in any language and compile it to C# with a local LLM. Free, MIT, no account, nothing leaves your machine.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./">Pseudo.NET</a>
+  <nav><a href="#teachers">Teachers</a><a href="#languages">Languages</a><a href="#install">Install</a><a href="fr/">Français</a></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Write pseudocode in your own words.<br>Get a running program.</h1>
+    <p class="lead">Pseudo.NET compiles <em>free-form</em> pseudocode to C# with a local language model. No imposed syntax, no account, no API key. Nothing leaves your machine.</p>
+    <a class="btn" href="https://github.com/pseudonet-lang/pseudonet/releases">Download</a>
+    <a class="btn alt" href="https://github.com/pseudonet-lang/pseudonet">Source on GitHub</a>
+  </section>
+
+  <p><img class="demo" src="assets/demo-tetris.gif" alt="Tetris running, written as pseudocode" width="480"></p>
+
+  <h2>Two project types</h2>
+  <div class="grid">
+    <div class="card"><h3>PseudoCode</h3><p>Console applications. Algorithms, exercises, teaching.</p></div>
+    <div class="card"><h3>PseudrawCode</h3><p>Windows with drawing, keyboard and a timer. Small games and animations.</p></div>
+  </div>
+  <p>Six ready-to-run samples are included as project templates: Snake, Tetris, Bounce, Primes, Bubble sort, Guess the number. The first run needs no Ollama.</p>
+
+  <h2 id="teachers">For teachers</h2>
+  <p>Agents write code now, yet students still need to learn to <em>think</em> algorithmically. Pseudocode is the classic way to teach it, but it was never executable. With Pseudo.NET, a student's pseudocode runs as written, in their own language and style, and the generated C# is a real program to read afterwards.</p>
+  <ul>
+    <li><strong>Private:</strong> the model runs locally, so no student data is sent anywhere.</li>
+    <li><strong>Free:</strong> MIT license, no account, no subscription.</li>
+    <li><strong>No syntax to memorise:</strong> braces, indentation-only, or plain sentences all work.</li>
+  </ul>
+
+  <h2 id="languages">Pseudocode in your language</h2>
+  <p>Write in English, French, Spanish, German, Italian, Portuguese, Chinese, Japanese, Russian… The same primes program, in French and indentation only:</p>
+<pre>nombresPremiers = une nouvelle liste
+
+définir est-ce que compteur est premier, qui retourne un booléen
+	estPremier = vrai
+	si compteur est inférieur à 2 alors
+		estPremier = faux
+	répéter diviseur de 2 à 50
+		si diviseur est inférieur à compteur alors
+			reste = compteur modulo diviseur
+			si reste est égal à 0 alors
+				estPremier = faux
+	retourner estPremier
+
+répéter compteur de 2 à 50
+	premier = est-ce que compteur est premier
+	si premier alors
+		ajouter compteur à nombresPremiers
+
+afficher le texte "Nombres premiers jusqu'à 50 :"
+pour chaque nombre dans nombresPremiers
+	afficher nombre</pre>
+  <p>Colour and key names have per-language JSON tables, and compiler messages are localized. Adding your language is writing a file.</p>
+
+  <h2 id="install">Install</h2>
+  <p>Two ways, same result. Either way you need <a href="https://ollama.com">Ollama</a> for your own programs, then once: <code>ollama pull qwen2.5-coder:7b</code> (about 5 GB). The samples run without it.</p>
+
+  <h3>From the command line (any editor)</h3>
+  <p>Requires the .NET 8+ SDK. Pseudraw (window) templates need Windows.</p>
+<pre>dotnet new install PseudoNet.Templates
+dotnet new pseudocode -n Hello
+cd Hello
+dotnet run</pre>
+  <p>Try a ready-made game (no Ollama needed for samples):</p>
+<pre>dotnet new pseudo-tetris -n MyTetris
+cd MyTetris
+dotnet run</pre>
+  <p>Other templates: <code>pseudrawcode</code>, <code>pseudo-snake</code>, <code>pseudo-bounce</code>, <code>pseudo-primes</code>, <code>pseudo-bubble-sort</code>, <code>pseudo-guess-number</code>. Then edit <code>Program.pseudo</code> in any editor and run again.</p>
+
+  <h3>In Visual Studio</h3>
+  <ol>
+    <li>Visual Studio 2026 (Community is fine; 2022 is intended but untested).</li>
+    <li>Download the <code>.vsix</code> from the <a href="https://github.com/pseudonet-lang/pseudonet/releases">releases</a> and open it.</li>
+    <li>File → New → Project → search “Pseudo”. Press F5.</li>
+  </ol>
+
+    <h2>Honest limits</h2>
+  <p>A 7B local model is good, not perfect: very long or ambiguous programs may need rewording. Windows only for now (Visual Studio or the .NET SDK from the command line).</p>
+
+  <h2 id="support">Support</h2>
+  <p>Pseudo.NET is free and will stay free. If it helped you or your students and you want to say thanks for the idea, a voluntary donation is welcome, never required.</p>
+  <a class="btn" href="https://www.paypal.me/YOUR-PAYPAL-HANDLE">Donate via PayPal</a>
+</main>
+
+<footer><div class="wrap">MIT © 2026 Malek AIT OUARET · <a href="https://github.com/pseudonet-lang/pseudonet">GitHub</a> · <a href="fr/">Français</a></div></footer>
+</body>
+</html>
